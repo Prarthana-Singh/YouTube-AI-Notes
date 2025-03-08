@@ -1,11 +1,10 @@
 
-
 import streamlit as st
 from dotenv import load_dotenv
 import os
 import google.generativeai as genai
-from youtube_transcript_api import YouTubeTranscriptApi
-from urllib.parse import urlparse, parse_qs
+from youtube_transcript_api import YouTubeTranscriptApi #Used to fetch the transcript of a YouTube video.
+from urllib.parse import urlparse, parse_qs #Used to extract the video ID from a YouTube URL.
 import time
 
 # Load environment variables
@@ -22,18 +21,18 @@ with st.sidebar:
     st.title("📌 Menu")
     st.subheader("🎯 How It Works")
     st.markdown("""
-    1. **Copy the YouTube Video Link** (Right-click & select 'Copy link address')
+    1. **Copy the YouTube Video Link** (Right-click & select 'Copy link')
     2. **Paste the link & click 'Generate AI Notes'**
     3. **AI extracts the transcript** 🎥
-    4. **Generates concise, structured notes** 📄
+    4. **Generates concise, structured notes**📄
     """)
 
-    st.subheader("🔗 Why Copy Link Address?")
-    st.markdown("""
-    - **Pasting the URL directly from the address bar might not work.**  
-    - **Why?** Because YouTube URLs contain extra parameters (like playlists or timestamps) that can break the extraction process.
-    - **Solution?** Always **right-click the video & select 'Copy link address'** before pasting. ✅
-    """)
+    # st.subheader("🔗 Why Copy Link Address?")
+    # st.markdown("""
+    # - **Pasting the URL directly from the address bar might not work.**
+    # - **Why?** Because YouTube URLs contain extra parameters (like playlists or timestamps) that can break the extraction process.
+    # - **Solution?** Always **right-click the video & select 'Copy link address'** before pasting. ✅
+    # """)
 
     st.subheader("👩‍💻 About the Creator")
     st.markdown("""
@@ -87,10 +86,24 @@ st.markdown("""
 
 
 # Extract Video ID from YouTube URL
-def extract_video_id(youtube_url):
-    parsed_url = urlparse(youtube_url)
-    video_id = parse_qs(parsed_url.query).get("v")
-    return video_id[0] if video_id else None
+# def extract_video_id(youtube_url):
+#     parsed_url = urlparse(youtube_url) # ParseResult(scheme='https', netloc='www.youtube.com', path='/watch', params='', query='v=O0GNrvO7wD0', fragment='')
+#     video_id = parse_qs(parsed_url.query).get("v")
+#     return video_id[0] if video_id else None
+
+
+def extract_video_id(video_url):
+    parsed_url = urlparse(video_url)  # URL ko parse karna
+    query_params = parse_qs(parsed_url.query)  # Query parameters extract karna
+
+    # ✅ Try to get video ID from "v"
+    video_id = query_params.get("v", [None])[0]
+
+    # ✅ If "v" is not found, check for "si" (shortened URL case)
+    if not video_id and "youtu.be" in parsed_url.netloc:
+        video_id = parsed_url.path.lstrip("/")  # Remove leading "/"
+
+    return video_id
 
 
 # Fetch YouTube Transcript
@@ -100,6 +113,8 @@ def extract_transcript_details(video_id):
         return " ".join([i["text"] for i in transcript_text])
     except Exception:
         return None
+
+
 
 
 # Generate Summary with Gemini AI
@@ -117,14 +132,14 @@ st.markdown("<div class='title'>YouTube AI Notes Converter</div>", unsafe_allow_
 st.markdown("🎥 **Convert YouTube Videos into AI-generated Notes!**")
 
 # Copy Link Address Warning
-st.warning("⚠️ **Important:** Always 'Copy Link Address' from YouTube before pasting!")
+st.warning("⚠️ **Important:** Always 'Copy Link' from YouTube before pasting!")
 
 youtube_link = st.text_input("📌 Enter YouTube Video Link:")
 
 if youtube_link:
     video_id = extract_video_id(youtube_link)
     if video_id:
-        st.image(f"http://img.youtube.com/vi/{video_id}/0.jpg", use_column_width=True)
+        st.image(f"http://img.youtube.com/vi/{video_id}/0.jpg",  use_column_width=True)
     else:
         st.error("⚠️ Invalid YouTube link! Please enter a correct URL.")
 
