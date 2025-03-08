@@ -2,7 +2,7 @@
 
 Convert YouTube videos into AI-generated concise and structured notes! 🎥✨  
 
-----------
+---------- 
 ### Demo : [Here▶️](https://huggingface.co/spaces/1Prarthana/YouTube-AI-Notes)
 ---
 ### Demo Screenshot:
