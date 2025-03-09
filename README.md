@@ -4,7 +4,7 @@ Convert YouTube videos into AI-generated concise and structured notes! 🎥✨
 
 ---------- 
 ### Demo : [Here▶️](https://youtube-ai-notes.streamlit.app/)
----
+--- 
 ### Demo Screenshot:
 ![Screenshot 2025-03-04 152512](https://github.com/user-attachments/assets/e24dc4e7-8edd-4240-8227-860864c3c3c5)
 ![Screenshot 2025-03-04 152602](https://github.com/user-attachments/assets/005c9c50-3cef-4555-80dc-60a2b3988dc0)
