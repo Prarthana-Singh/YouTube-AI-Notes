@@ -1,4 +1,7 @@
 # 📜 YouTube AI Notes Converter  
+[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org/)
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](README.md)
 
 Convert YouTube videos into AI-generated concise and structured notes! 🎥✨  
 
@@ -20,22 +23,16 @@ Convert YouTube videos into AI-generated concise and structured notes! 🎥✨
 - 🔗 **Easy YouTube Link Processing** – Works best with copied video links.  
 
 ## 🎯 How It Works  
-1️⃣ **Copy the YouTube Video Link** (Right-click & select _Copy link address_).  
+1️⃣ **Copy the YouTube Video Link** (Right-click & select _Copy link__).  
 2️⃣ **Paste the link** in the input field.  
 3️⃣ **Click "Generate AI Notes"** to extract and summarize the transcript.  
 4️⃣ **Enjoy structured notes** without watching the entire video! 🎉  
 
 ---
-## ❗ Why Copy Link Address?  
-Pasting the URL directly from the address bar might not work due to:  
-🔹 Extra parameters (like playlists/timestamps) breaking the extraction process.  
-✅ **Solution:** Always right-click the video & select **"Copy link address"** before pasting.  
-
----
 ## 🛠️ Installation & Usage  
 ### 1️⃣ Clone the Repository  
 ```bash
-git clone https://huggingface.co/spaces/1Prarthana/YouTube-AI-Notes-Converter
+git clone https://github.com/Prarthana-Singh/YouTube-AI-Notes.git
 cd YouTube-AI-Notes-Converter
 ```
 
@@ -59,11 +56,69 @@ Ensure these packages are installed:
 4. transformers
 5. torch
 
-## 🔑 API Keys
-Set up a .streamlit/secrets.toml file for API authentication:
+## 🔑Add API keys to .env
 ``` GOOGLE_API_KEY = "your-google-api-key" ```
 
-### 📢 Contributing
-We welcome contributions! Fork the repo, make your changes, and submit a pull request. 🚀
+----
 
+### 🤝 Contributing
+We welcome contributions from everyone! Here's how you can help:
 
+---
+
+##### 📌First-Time Contributors
+If you're new to open-source, follow these steps:
+
+1. Fork the repository (click the Fork button on GitHub)
+2. Clone your fork:
+```bash
+   git clone https://github.com/Prarthana-Singh/YouTube-AI-Notes-Converter.git
+```
+3. Create a new branch:
+```bash
+git checkout -b my-feature-branch
+```
+----
+#### ➡️Making Changes
+* Make your changes (start with small fixes like documentation improvements)
+* Test your changes:
+```bash
+python tests.py
+```
+* Commit with a clear message:
+```bash
+git commit -m "fix: correct typo in installation guide"
+```
+---
+#### ▶️Submitting a Pull Request
+* Push your changes:
+```bash
+git push origin my-feature-branch
+```
+* On GitHub, click "Compare & pull request"
+* Fill out the PR template explaining your changes
+---
+
+### Good First Issues
+Look for these labels:
+* good first issue - Great for beginners!
+* documentation - Help improve docs
+* bug - Fix reported issues
+---
+
+### ❓ Support
+* Got stuck? Open an issue with:
+* What you tried
+* What happened
+* Screenshots if applicable
+---
+
+### 📜 License
+* This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+---
+
+### 🙏 Acknowledgments
+* Google YouTube API
+* Contributors like you!
+
+**💖 Happy Contributing! Remember, every big project starts with small contributions.**
