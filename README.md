@@ -64,7 +64,6 @@ Ensure these packages are installed:
 ### 🤝 Contributing
 We welcome contributions from everyone! Here's how you can help:
 
----
 
 ##### 📌First-Time Contributors
 If you're new to open-source, follow these steps:
@@ -78,7 +77,7 @@ If you're new to open-source, follow these steps:
 ```bash
 git checkout -b my-feature-branch
 ```
-----
+
 #### ➡️Making Changes
 * Make your changes (start with small fixes like documentation improvements)
 * Test your changes:
@@ -89,7 +88,7 @@ python tests.py
 ```bash
 git commit -m "fix: correct typo in installation guide"
 ```
----
+
 #### ▶️Submitting a Pull Request
 * Push your changes:
 ```bash
